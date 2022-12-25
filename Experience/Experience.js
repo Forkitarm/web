@@ -25,12 +25,13 @@ export default class Experience{
         this.theme = new Theme();
         this.world = new World();
 
-        this.time.on("update", () => {
-            this.update();
-        }) 
+
         this.sizes.on("resize", () => {
             this.resize();
-        }) 
+        }); 
+        this.time.on("update", () => {
+            this.update();
+        }); 
     }
 
     resize() {
