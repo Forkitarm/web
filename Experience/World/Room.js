@@ -32,12 +32,22 @@ export default class Room {
                     groupchild.castShadow = true;
                     groupchild.receiveShadow = true;
                 })
-            }
-            if(child.name === "Screen") {
+            };
+            console.log(child);
+
+            if(child.name === "body") {
                 console.log(child);
-                child.material = new THREE.MeshBasicMaterial({
+                child.children[4].material = new THREE.MeshBasicMaterial({
                     map: this.resources.items.screen,
                 });
+            };
+
+            if(child.name === 'Minifloor') {
+                child.position.x = 4.47489;
+                child.position.z = -5.44608;
+            };
+            if(child.name === 'Mailbox' || child.name ==='floorLamp' || child.name === 'floorfirst' || child.name === 'floorsec')  {
+                child.scale.set(0,0,0);
             }
         });
         this.scene.add(this.actualRoom);

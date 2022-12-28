@@ -51,9 +51,10 @@ export default class Resources extends EventEmitter{
                 this.videoTexture[asset.name].mageFilter = THREE.NearestFilter; 
                 this.videoTexture[asset.name].generateMipmaps = false; 
                 this.videoTexture[asset.name].encoding = THREE.sRGBEncoding; 
-                this.videoTexture[asset.name].flipY = false;
+                this.videoTexture[asset.name].flipY = true;
                 this.singleAssetLoaded(asset, this.videoTexture[asset.name]);
             }
+            console.log(this.video);
         }
     }
     singleAssetLoaded(asset, file) {

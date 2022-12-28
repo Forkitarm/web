@@ -233,6 +233,66 @@ export default class Controls {
             },
 
             all : () => {
+                // platform anim
+                this.secondPartTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: '.first-move',
+                        start: 'center center',
+                    },
+                });
+                this.room.children.forEach(child => {
+                    if(child.name === 'Minifloor'){
+                        this.first = GSAP.to(child.position, {
+                            x: 0.46226,
+                            z: 0.411338,
+                            duration: 0.5,
+                            ease: 'back.out(2)',
+                        })
+                    }
+                    if(child.name === 'Mailbox'){
+                        this.second = GSAP.to(child.scale, {
+                            x: 0.7,
+                            z: 0.7,
+                            y: 1, 
+                            ease: 'back.out(2)',
+                            duration: 0.5,
+                        })
+                    }
+                    if(child.name === 'floorLamp'){
+                        this.third = GSAP.to(child.scale, {
+                            x: 0.45,
+                            z: 0.45,
+                            y: 0.45, 
+                            ease: 'back.out(2)',
+                            duration: 0.5,
+                        })
+                    }
+                    if(child.name === 'floorfirst'){
+                        this.fourth = GSAP.to(child.scale, {
+                            x: 0.7,
+                            z: 1.4,
+                            y: 0.3, 
+                            ease: 'back.out(2)',
+                            duration: 0.5,
+                        })
+                    }
+                    if(child.name === 'floorsec'){
+                        this.fifth = GSAP.to(child.scale, {
+                            x: 0.7,
+                            z: 1.4,
+                            y: 0.3, 
+                            ease: 'back.out(2)',
+                            duration: 0.5,
+                        })
+                    }
+                });
+                this.secondPartTimeline.add(this.first);
+                this.secondPartTimeline.add(this.second, "-=0.2");
+                this.secondPartTimeline.add(this.third, "-=0.2");
+                this.secondPartTimeline.add(this.fourth, "-=0.2");
+                this.secondPartTimeline.add(this.fifth);
+
+
                 this.sections = document.querySelectorAll(".section");
                 this.sections.forEach(section => {
                     this.progressWrapper = section.querySelector(".progress-wrapper");
