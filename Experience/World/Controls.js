@@ -25,6 +25,8 @@ export default class Controls {
        GSAP.registerPlugin(ScrollTrigger);
 
 
+
+
        this.setSmoothScroll();
        this.setScrolltrigger();
      
@@ -87,7 +89,6 @@ export default class Controls {
             "(min-width: 969px)": () => {
                 this.room.scale.set(0.11, 0.11, 0.11);
                 this.room.position.set(0, 0, 0);
-                console.log("fired Desktop");
                 // First section
                 this.firstMoveTimeline = new GSAP.timeline({
                     scrollTrigger:{
@@ -167,7 +168,6 @@ export default class Controls {
                 this.room.position.set(0,0,0);
                 this.room.scale.set(0.07, 0.07, 0.07);
                 this.camera.orthographicCamera.position.set(0, 6.5, 10);
-                console.log("fired tablet");
                 // First Section
                 this.firstMoveTimeline = new GSAP.timeline({
                     scrollTrigger: {

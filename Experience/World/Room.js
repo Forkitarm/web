@@ -10,6 +10,7 @@ export default class Room {
        this.resources = this.experience.resources;
        this.room = this.resources.items.room;
        this.actualRoom = this.room.scene;
+       this.roomChildren = {}
 
        //console.log(this.actualRoom);
 
@@ -33,10 +34,8 @@ export default class Room {
                     groupchild.receiveShadow = true;
                 })
             };
-            console.log(child);
 
             if(child.name === "body") {
-                console.log(child);
                 child.children[4].material = new THREE.MeshBasicMaterial({
                     map: this.resources.items.screen,
                 });
@@ -46,9 +45,15 @@ export default class Room {
                 child.position.x = 4.47489;
                 child.position.z = -5.44608;
             };
-            if(child.name === 'Mailbox' || child.name ==='floorLamp' || child.name === 'floorfirst' || child.name === 'floorsec')  {
+            /*if(child.name === 'Mailbox' || child.name ==='floorLamp' || child.name === 'floorfirst' || child.name === 'floorsec')  {
                 child.scale.set(0,0,0);
-            }
+            }*/
+            child.scale.set(0,0,0);
+            if(child.name === 'Cube') {
+                child.position.set(0, -1.5, 0);
+                child.rotation.y = Math.PI / 4;
+            };
+            this.roomChildren[child.name] = child
         });
         this.scene.add(this.actualRoom);
         this.actualRoom.scale.set(0.11, 0.11, 0.11);
@@ -69,6 +74,9 @@ export default class Room {
         const pclight = new THREE.PointLight( 0xff0000, 0.05, 50);
         pclight.position.set(-6.216178894042969, 0.9048910140991211, 3.1462504863739014);
         this.actualRoom.add( pclight );
+
+        // *ADD AREALIGHT for miniplatform. (maybe only for dark-theme)
+
     }
 
     setAnimation() {

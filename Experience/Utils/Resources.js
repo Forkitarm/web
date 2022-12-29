@@ -54,7 +54,6 @@ export default class Resources extends EventEmitter{
                 this.videoTexture[asset.name].flipY = true;
                 this.singleAssetLoaded(asset, this.videoTexture[asset.name]);
             }
-            console.log(this.video);
         }
     }
     singleAssetLoaded(asset, file) {
