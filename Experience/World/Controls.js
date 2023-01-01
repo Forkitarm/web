@@ -24,7 +24,8 @@ export default class Controls {
 
        GSAP.registerPlugin(ScrollTrigger);
 
-
+        // hacky -> refactor
+       document.querySelector('.page').style.overflow = 'visible';
 
 
        this.setSmoothScroll();

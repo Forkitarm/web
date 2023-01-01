@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 html, body {
-  font-family: 'Special Elite', cursive;
+  font-family: 'Roboto Slab';
 }
 
 
@@ -29,6 +29,7 @@ svg{
   --color-blue-light: #8395CD;
   --color-icon-light: white;
   --color-toggle-bar-light: white;
+  --color-intro-text-light: #000;
 
   /* Dark Theme Variables */
   --color-main-header-dark: #fff;
@@ -37,6 +38,7 @@ svg{
   --color-pink-dark: #000;
   --color-background-dark: #262626;
   --color-toggle-bar-dark: #ffff;
+  --color-intro-text-dark: #ffff;
 }
 
 .light-theme{
@@ -48,6 +50,7 @@ svg{
   --color-blue: var(--color-blue-light);
   --color-icon: var(--color-icon-light);
   --color-toggle-bar: var(--color-toggle-bar-light);
+  --color-intro-text: var(--color-intro-text-light);
 }
 
 .dark-theme{
@@ -59,6 +62,7 @@ svg{
   --color-green: var(--color-text-dark);
   --color-blue: var(--color-text-dark);
   --color-toggle-bar: var(--color-toggle-bar-dark);
+  --color-intro-text: var(--color-intro-text-dark);
 }
 
 
@@ -93,6 +97,7 @@ svg{
   justify-content: center;
   align-items: center;
   top: 48px;
+  opacity: 0;
   right: 48px;
   z-index: 99999;
 }
@@ -149,18 +154,92 @@ svg{
 /* THEME TOGGLE END */
 /* PageHTML END */
 /* Preloader Stuff */
+
+.preloader {
+  background-color: var(--color-background);
+  width: 100%;
+  position: fixed;
+  height: 100vh;
+  opacity: 1;
+  z-index: 999;
+}
+
+.preloader-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.circle{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 6px;
+  background-color: var(--color-background-dark);
+  animation: load 1s ease-in-out infinite;
+}
+.hidden {
+  display: none;
+}
+
+.circle:nth-child(2){
+  animation-delay: 0.1s;
+}
+.circle:nth-child(3){
+  animation-delay: 0.2s;
+}
+
+@keyframes load {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-12px);
+  }
+  40% {
+    transform: translateY(0);
+  }
+}
+
 .animatedis {
   display: inline-block;
   transform: translateY(100%);
 }
-
 .intro-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 50%;
   left: 50%;
-  font-weight: 500;
-  font-size: 16px;
+  color: var(--color-intro-text);
+  font-weight: 400;
+  font-size: 18px;
   transform: translate(-50%, -50%);
+}
+.arrow-svg-wrapper {
+  position: absolute;
+  top: 90%;
+  opacity: 0;
+  left: 50%;
+  color: var(--color-intro-text);
+  transform: translate(-50%, -50%);
+  animation: bounce 0.5s ease-in alternate infinite;
+}
+
+@keyframes bounce {
+  0%{
+    transform: translateY(0)
+  }
+  100%{
+    transform: translateY(8px)
+  }
 }
 
 /* Section Formatting / Design */

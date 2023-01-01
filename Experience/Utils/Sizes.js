@@ -33,6 +33,7 @@ export default class Sizes extends EventEmitter {
                 this.emit("switchdevice", this.device);
                 console.log("Desktop");
             }
+            return window.removeEventListener("resize", {});
         })
     }
 }
