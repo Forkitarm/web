@@ -125,8 +125,16 @@ export default class Preloader extends EventEmitter {
                 y: 0,
                 z: 0,
                 ease: 'power1.out',
-                duration: 0.7,
-            }, "int").to('.hero-main-title .animatedis', {
+                duration: 0.4,
+            }, "int").to(this.roomChildren.Board.scale, {
+                x: 1,
+                y: 1,
+                z: 1,
+            }).to(this.roomChildren.Desks.scale, {
+                x: 1,
+                y: 1,
+                z: 1,
+            }).to('.hero-main-title .animatedis', {
                 yPercent: -100,
                 stagger: 0.05,
                 ease: 'back.out(1.7)',
@@ -142,15 +150,7 @@ export default class Preloader extends EventEmitter {
                 yPercent: -100,
                 stagger: 0.05,
                 ease: 'back.out(1.7)',
-            }, "int").to(this.roomChildren.Board.scale, {
-                x: 1,
-                y: 1,
-                z: 1,
-            }).to(this.roomChildren.Desks.scale, {
-                x: 1,
-                y: 1,
-                z: 1,
-            }).to(this.roomChildren.Computers.scale, {
+            }, "int").to(this.roomChildren.Computers.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
@@ -245,7 +245,7 @@ export default class Preloader extends EventEmitter {
         if(this.device === 'desktop') {
             this.room.scale.set(0.11,0.11, 0.11);
         } else {
-            this.room.scale.set(0.07, 0.07, 0.07);
+            this.room.scale.set(0.09, 0.09, 0.09);
         }
     }
 

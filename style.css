@@ -156,7 +156,7 @@ svg{
 /* Preloader Stuff */
 
 .preloader {
-  background-color: var(--color-background);
+  background-color: var(--color-text-light);
   width: 100%;
   position: fixed;
   height: 100vh;

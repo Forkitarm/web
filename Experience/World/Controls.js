@@ -27,8 +27,15 @@ export default class Controls {
         // hacky -> refactor
        document.querySelector('.page').style.overflow = 'visible';
 
+       if (
+        !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+        )
+    ) {
+        this.setSmoothScroll();
+    }
 
-       this.setSmoothScroll();
+
        this.setScrolltrigger();
      
     }
@@ -36,7 +43,7 @@ export default class Controls {
     setupASScroll() {
         // https://github.com/ashthornton/asscroll
         const asscroll = new ASScroll({
-            ease: 0.3,
+            ease: 0.5,
             disableRaf: true,
         });
 
