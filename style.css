@@ -330,7 +330,7 @@ svg{
 .section-text {
   line-height: 2;
   margin-top: 18px;
-  font-size: 16px;
+  font-size: 20px;
   font-family: 'Roboto';
   color: var(--color-text);
 }
