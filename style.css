@@ -19,6 +19,10 @@ svg{
   transition: background-color 0.5s, color 0.5s;
 }
 
+a {
+  text-decoration: none;
+}
+
 :root{
   /* Light Theme Variables */
   --color-text-light: #ffff;
